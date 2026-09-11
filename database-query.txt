@@ -1,0 +1,111 @@
+CREATE DATABASE IF NOT EXISTS `tatadb`;
+USE `tatadb`;
+
+CREATE TABLE IF NOT EXISTS `cars_details` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `type` VARCHAR(50) NOT NULL,
+    `tagline` VARCHAR(100),
+    `price` DOUBLE NOT NULL,
+    `rangeOrMileage` INT NOT NULL,
+    `safetyRating` INT NOT NULL,
+    `fuelType` VARCHAR(50) NOT NULL,
+    `imageUrl` VARCHAR(100),
+    `popular` BOOLEAN DEFAULT 0
+);
+
+INSERT INTO `cars_details` (`name`, `type`, `tagline`, `price`, `rangeOrMileage`, `safetyRating`, `fuelType`, `imageUrl`, `popular`) VALUES
+('Tata Curvv.ev', 'ev', 'Shaped to Break the Mold', 17.49, 585, 5, 'Electric', 'tata_curvvev_image', 1),
+('Tata Nexon.ev', 'ev', 'Way Ahead of Its Time', 12.49, 489, 5, 'Electric', 'tata_nexonev_image', 1),
+('Tata Punch.ev', 'ev', 'Beyond Limits', 9.69, 365, 5, 'Electric', 'tata_punchev_image', 1),
+('Tata Tiago.ev', 'ev', 'Go.ev for Everyone', 6.99, 315, 4, 'Electric', 'tata_tiagoev_image', 1),
+('Tata Tigor.ev', 'ev', 'Ziptron Powered Sedan', 12.49, 315, 4, 'Electric', 'tata_tigorev_image', 0),
+('Tata Sierra.ev', 'ev', 'Legend Hypercharged', 18.79, 665, 5, 'Electric', 'tata_sierraev_image', 1),
+('Tata Harrier.ev', 'ev', 'Delete Impossible', 21.69, 627, 5, 'Electric', 'tata_harrierev_image', 1),
+('Tata Nexon', 'ice', 'It Is In Vogue', 7.40, 17, 5, 'Petrol', 'tata_nexon_petrol_image', 1),
+('Tata Nexon Diesel', 'ice', 'Power Meets Efficiency', 10.00, 23, 5, 'Diesel', 'tata_nexon_diesel_image', 0),
+('Tata Nexon iCNG', 'ice', 'India''s First Turbo CNG SUV', 8.30, 24, 5, 'CNG', 'tata_nexon_icng_image', 1),
+('Tata Punch', 'ice', 'Vibe With It', 5.70, 20, 5, 'Petrol', 'tata_punch_petrol_image', 1),
+('Tata Punch iCNG', 'ice', 'No Compromise SUV', 7.23, 27, 5, 'CNG', 'tata_punch_icng_image', 0),
+('Tata Curvv ICE', 'ice', 'Shaped For More', 9.76, 15, 5, 'Petrol', 'tata_curvv_ice_image', 1),
+('Tata Harrier', 'ice', 'Above All', 13.00, 17, 5, 'Diesel', 'tata_harrier_image', 1),
+('Tata Safari', 'ice', 'Reclaim Your Life', 13.40, 16, 5, 'Diesel', 'tata_safari_image', 1),
+('Tata Altroz', 'ice', 'The Gold Standard', 6.00, 19, 5, 'Petrol', 'tata_altroz_petrol_image', 0),
+('Tata Altroz Racer', 'ice', 'Race Inspired Performance', 9.49, 18, 5, 'Petrol', 'tata_altroz_racer_image', 1),
+('Tata Altroz iCNG', 'ice', 'India''s First Twin-Cylinder CNG', 7.60, 26, 5, 'CNG', 'tata_altroz_icng_image', 0),
+('Tata Tiago', 'ice', 'It''s Seriously Fun', 4.70, 20, 4, 'Petrol', 'tata_tiago_petrol_image', 0),
+('Tata Tiago iCNG', 'ice', 'iCNG Technology Unleashed', 6.60, 26, 4, 'CNG', 'tata_tiago_icng_image', 0),
+('Tata Tigor', 'ice', 'The Compact Sedan', 5.55, 19, 4, 'Petrol', 'tata_tigor_petrol_image', 0),
+('Tata Sierra ICE', 'ice', 'The Return of an Icon', 11.49, 16, 5, 'Petrol', 'tata_sierra_ice_image', 1);
+
+CREATE TABLE IF NOT EXISTS `ev_car_details` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `tagline` VARCHAR(100),
+    `price` DOUBLE NOT NULL,
+    `claimedrange` INT NOT NULL,
+    `batterycapacity` INT NOT NULL,
+    `fastchargertime` INT NOT NULL,
+    `imageurl` VARCHAR(100),
+    `warranty` FLOAT NOT NULL
+);
+
+INSERT INTO `ev_car_details` (`name`, `tagline`, `price`, `claimedrange`, `batterycapacity`, `fastchargertime`, `imageurl`, `warranty`) VALUES
+('Tata Curvv.ev 55', 'Shaped to Break the Mold', 19.25, 585, 55, 40, 'tata_curvv_ev_55', 8.0),
+('Tata Curvv.ev 45', 'Electric Coupe Elevated', 17.49, 502, 45, 40, 'tata_curvv_ev_45', 8.0),
+('Tata Nexon.ev Long Range', 'Way Ahead of Its Time', 16.99, 489, 45, 40, 'tata_nexon_ev_lr', 8.0),
+('Tata Nexon.ev Medium Range', 'The Original Gamechanger', 12.49, 325, 30, 45, 'tata_nexon_ev_mr', 8.0),
+('Tata Punch.ev Long Range', 'Beyond Limits', 12.99, 468, 40, 26, 'tata_punch_ev_lr', 8.0),
+('Tata Punch.ev Standard', 'Vibe Goes Electric', 9.69, 365, 30, 26, 'tata_punch_ev_std', 8.0),
+('Tata Tiago.ev Long Range', 'Go.ev for Everyone', 9.99, 315, 24, 57, 'tata_tiago_ev_lr', 8.0),
+('Tata Tiago.ev Medium Range', 'Smart Urban Commute', 6.99, 250, 19, 57, 'tata_tiago_ev_mr', 8.0),
+('Tata Tigor.ev', 'The Compact EV Sedan', 12.49, 315, 26, 59, 'tata_tigor_ev', 8.0),
+('Tata Harrier.ev 4x4', 'Delete Impossible', 24.99, 627, 75, 35, 'tata_harrier_ev', 8.0),
+('Tata Sierra.ev', 'Legend Hypercharged', 21.49, 665, 80, 30, 'tata_sierra_ev', 8.0),
+('MG Windsor EV', 'India''s First CUV', 13.50, 331, 38, 40, 'mg_windsor_ev', 8.0),
+('MG ZS EV Long Range', 'Change What You Can', 18.98, 461, 50, 42, 'mg_zs_ev', 8.0),
+('MG Comet EV', 'The Big Inside City Car', 6.99, 230, 17, 60, 'mg_comet_ev', 8.0),
+('Mahindra XUV400 Pro', 'All-Electric High-Tech SUV', 15.49, 456, 39, 50, 'mahindra_xuv400_pro', 8.0),
+('Mahindra BE 6', 'Born Electric Thrill', 21.90, 683, 79, 20, 'mahindra_be_6', 8.0),
+('Mahindra XEV 9e', 'Unlimit Electric Luxury', 24.90, 656, 79, 20, 'mahindra_xev_9e', 8.0),
+('BYD Atto 3 Dynamic', 'Born With Energy', 24.99, 468, 50, 50, 'byd_atto_3_dynamic', 8.0),
+('BYD Atto 3 Superior', 'The Advanced Electric SUV', 33.99, 521, 60, 50, 'byd_atto_3_superior', 8.0),
+('BYD Seal Dynamic', 'Pure Oceanic Performance', 41.00, 510, 61, 37, 'byd_seal_dynamic', 8.0),
+('BYD Seal Performance AWD', 'The Sub-4-Second EV', 53.00, 580, 83, 37, 'byd_seal_performance', 8.0),
+('Hyundai Ioniq 5', 'Power Your World', 46.05, 631, 73, 18, 'hyundai_ioniq_5', 8.0),
+('Kia EV6 GT-Line', 'Fully Charged Inspiration', 60.95, 708, 77, 18, 'kia_ev6_gt', 8.0);
+
+CREATE TABLE IF NOT EXISTS `contact_inquiries` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `phone` VARCHAR(20) NOT NULL,
+    `subject` VARCHAR(50) NOT NULL,
+    `message` TEXT NOT NULL,
+    `submitted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS `service_bookings` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `customer_name` VARCHAR(100) NOT NULL,
+    `phone` VARCHAR(20) NOT NULL,
+    `car_model` VARCHAR(50) NOT NULL,
+    `service_type` VARCHAR(50) NOT NULL,
+    `preferred_date` DATE NOT NULL,
+    `notes` TEXT,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS `test_drive_bookings` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `customer_name` VARCHAR(100) NOT NULL,
+    `phone` VARCHAR(20) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `city` VARCHAR(50) NOT NULL,
+    `car_name` VARCHAR(100) NOT NULL,
+    `car_category` VARCHAR(50) NOT NULL,
+    `preferred_date` DATE NOT NULL,
+    `preferred_slot` VARCHAR(50) NOT NULL,
+    `test_drive_location` VARCHAR(50) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
